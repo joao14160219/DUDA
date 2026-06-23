@@ -438,7 +438,190 @@ async function sendInviteEmail() {
     await emailjs.send(EC.serviceId, EC.templateId, {
       to_email: email, to_name:'Duda', from_name:'João',
       subject:'Seu jantar especial 🐎',
-      message:'Que bom que disse sim! Data: 25/06/2026. Local: Surpresa 🤫',
+      message:'Que bom que disse sim! Data: 25/06/2026. Local: Surpresa.',
+      message_html: `<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Seu jantar especial 🐎</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500&display=swap');
+  body { margin:0; padding:0; background:#080610; font-family:'Inter',sans-serif; }
+  .wrapper { max-width:540px; margin:0 auto; padding:40px 16px; }
+
+  .card {
+    background: linear-gradient(160deg, #160e02 0%, #08060f 60%, #1a1000 100%);
+    border: 1px solid rgba(200,150,40,.18);
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 0 80px rgba(200,134,26,.08);
+  }
+
+  .hero {
+    background: linear-gradient(180deg, #221400 0%, #160e02 100%);
+    padding: 48px 32px 36px;
+    text-align: center;
+    border-bottom: 1px solid rgba(200,150,40,.1);
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content:'';
+    position:absolute; inset:0;
+    background: radial-gradient(ellipse 60% 40% at 50% 0%, rgba(200,134,26,.2) 0%, transparent 70%);
+    pointer-events:none;
+  }
+
+  .horse-svg {
+    width: 90px; height: 80px;
+    margin: 0 auto 22px;
+    display: block;
+    filter: drop-shadow(0 0 16px rgba(224,168,48,.6));
+    animation: floatHorse 3s ease-in-out infinite;
+  }
+  @keyframes floatHorse {
+    0%,100% { transform: translateY(0px);   }
+    50%      { transform: translateY(-8px);  }
+  }
+
+  .hero h1 {
+    font-family:'Playfair Display',serif;
+    font-size:2.1rem; font-weight:400;
+    color:#fff; margin:0 0 8px; line-height:1.2;
+  }
+  .hero h1 em { font-style:italic; color:#e0a830; }
+
+  .body { padding:36px 32px; }
+
+  .divider {
+    width:48px; height:1px;
+    background: linear-gradient(90deg,transparent,#c8861a,transparent);
+    margin:0 auto 28px;
+  }
+
+  .body > p {
+    color:#c0a878;
+    font-size:.95rem; line-height:1.8;
+    font-weight:300; text-align:center;
+    margin:0 0 24px;
+  }
+
+  .details-box {
+    background: rgba(200,134,26,.06);
+    border: 1px solid rgba(200,134,26,.18);
+    border-radius: 16px;
+    padding: 24px 28px;
+    margin-bottom: 28px;
+  }
+  .detail-row {
+    display:flex; align-items:flex-start;
+    gap:14px; margin-bottom:14px;
+  }
+  .detail-row:last-child { margin-bottom:0; }
+  .detail-icon { font-size:1.2rem; flex-shrink:0; margin-top:1px; }
+  .detail-text { flex:1; }
+  .detail-label {
+    display:block; font-size:.7rem;
+    letter-spacing:.12em; text-transform:uppercase;
+    color:#e0a830; font-weight:500; margin-bottom:2px;
+  }
+  .detail-value {
+    font-size:.92rem; color:#e0c8a0; font-weight:300;
+  }
+
+  .footer {
+    border-top: 1px solid rgba(200,150,40,.1);
+    padding: 24px 32px; text-align:center;
+  }
+  .footer p {
+    color:#6a5030; font-size:.8rem;
+    margin:0; line-height:1.6;
+  }
+  .icons { font-size:1.2rem; letter-spacing:.2em; }
+</style>
+</head>
+<body>
+<div class="wrapper">
+  <div class="card">
+
+    <!-- HERO -->
+    <div class="hero">
+      <svg class="horse-svg" viewBox="0 0 576 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="hg" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#ffd060"/>
+            <stop offset="50%" stop-color="#e0a030"/>
+            <stop offset="100%" stop-color="#904808"/>
+          </linearGradient>
+          <filter id="glow">
+            <feGaussianBlur stdDeviation="10" result="blur"/>
+            <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+          </filter>
+        </defs>
+        <path filter="url(#glow)" fill="url(#hg)"
+          d="M448 238.1l0-78.1 16 0 9.8 19.6c12.5 25.1 42.2 36.4 68.3 26c20.5-8.2 33.9-28 33.9-50.1L576 80c0-19.1-8.4-36.3-21.7-48l5.7 0c8.8 0 16-7.2 16-16s-7.2-16-16-16L480 0 448 0C377.3 0 320 57.3 320 128l-96 0-20.8 0-54.4 0c-30.7 0-57.6 16.3-72.5 40.8C33.2 174.5 0 211.4 0 256l0 56c0 13.3 10.7 24 24 24s24-10.7 24-24l0-56c0-13.4 6.6-25.2 16.7-32.5c1.6 13 6.3 25.4 13.6 36.4l28.2 42.4c8.3 12.4 6.4 28.7-1.2 41.6c-16.5 28-20.6 62.2-10 93.9l17.5 52.4c4.4 13.1 16.6 21.9 30.4 21.9l33.7 0c21.8 0 37.3-21.4 30.4-42.1l-20.8-62.5c-2.1-6.4-.5-13.4 4.3-18.2l12.7-12.7c13.2-13.2 20.6-31.1 20.6-49.7c0-2.3-.1-4.6-.3-6.9l84 24c4.1 1.2 8.2 2.1 12.3 2.8L320 480c0 17.7 14.3 32 32 32l32 0c17.7 0 32-14.3 32-32l0-164.3c19.2-19.2 31.5-45.7 32-75.7l0-1.9zM496 64a16 16 0 1 1 0 32 16 16 0 1 1 0-32z">
+          <animateTransform attributeName="transform" type="translate"
+            values="0,0;0,-6;0,2;0,-4;0,0" dur="1.6s" repeatCount="indefinite"
+            additive="sum"/>
+        </path>
+      </svg>
+
+      <h1>Save the,<br><em>DATE!</em></h1>
+    </div>
+
+    <!-- BODY -->
+    <div class="body">
+      <div class="divider"></div>
+
+      <p>Que bom que disse sim, nosso jantar vai ser muito bom —<br>
+      guarda esse email com carinho 🌹</p>
+
+      <div class="details-box">
+        <div class="detail-row">
+          <span class="detail-icon">📅</span>
+          <div class="detail-text">
+            <span class="detail-label">Data</span>
+            <span class="detail-value">25/06/2026</span>
+          </div>
+        </div>
+        <div class="detail-row">
+          <span class="detail-icon">📍</span>
+          <div class="detail-text">
+            <span class="detail-label">Local</span>
+            <span class="detail-value">Surpresa 🤫</span>
+          </div>
+        </div>
+        <div class="detail-row">
+          <span class="detail-icon">🍷</span>
+          <div class="detail-text">
+            <span class="detail-label">O que esperar</span>
+            <span class="detail-value">Comida muuuuuito boa.</span>
+          </div>
+        </div>
+        <div class="detail-row">
+          <span class="detail-icon">🐎</span>
+          <div class="detail-text">
+            <span class="detail-label">Traje</span>
+            <span class="detail-value">Linda como sempre</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="footer">
+      <div class="icons">🐴 🌾 🐴</div>
+      <p style="margin-top:10px;">
+        Você foi convidada porque é especial.<br>
+        <span style="color:#e0a830;">Isso é um fato.</span>
+      </p>
+    </div>
+
+  </div>
+</div>
+</body>
+</html>`,
       reply_to: email
     });
     st.textContent = 'Email enviado! Confira sua caixa de entrada.';
